@@ -13,6 +13,7 @@
 
 | Work | Verification |
 |---|---|
+| CrypTool DES/AES practical | Five user-supplied Windows CrypTool 2.1 Build 9778.2 screenshots dated 17 October 2026; AES-256-CBC and DES-ECB recover the original 21-character message |
 | DES/AES supplement | 1 MiB round trips, five timed trials per cipher |
 | RSA/OAEP | Exact file round trip, oversized input and modified ciphertext rejection |
 | RSA-PSS signature | Saved signature verifies; changed message rejected |
@@ -28,7 +29,7 @@ OpenSSL signatures and certificate files were also independently verified after 
 
 ## What was not executed
 
-CrypTool Experiment 3, Wireshark captures, two-system SSH authentication, an OpenVPN tunnel and Cisco Packet Tracer were not executed here. Raw capture permission was unavailable, and a TUN device and the required GUI tools were unavailable. The OpenVPN generator was syntax-checked only. Linux command-line execution is not evidence of using VS Code or Kali.
+CrypTool was not executed in the Linux preparation environment; Experiment 3 was subsequently verified from the user's Windows screenshots. Controlled CrypTool timing and saved workspace uploads remain pending. Wireshark captures, two-system SSH authentication, an OpenVPN tunnel and Cisco Packet Tracer were not executed here. Raw capture permission was unavailable, and a TUN device and the required GUI tools were unavailable. The OpenVPN generator was syntax-checked only. Linux command-line execution is not evidence of using VS Code or Kali.
 
 ## Image provenance
 
