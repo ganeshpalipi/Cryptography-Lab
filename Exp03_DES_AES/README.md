@@ -105,6 +105,10 @@ Both are symmetric block ciphers. DES uses a 16-round Feistel structure. AES use
 
 ECB reveals repeated plaintext blocks as repeated ciphertext blocks under the same key. CBC uses an IV and chaining, but does not itself authenticate messages. Neither demonstration provides an integrity check. Authenticated encryption such as AES-GCM is used in [Experiment 8](../Exp08_AES_Text_App/README.md).
 
+## Prepared timing workspaces
+
+[Download the matched DES/AES timing workspaces and follow the run guide](timing/README.md). These are prepared drafts with the same 8 MiB input and ECB mode; Windows CrypTool execution and timing evidence are still pending.
+
 ## Performance observations
 
 The DES screenshots show **Calculation finished after 0 seconds**. This is a coarse GUI display, not evidence of zero processing time. The AES screenshots show output while the workspace remains in an executing state and do not provide a comparable duration. No CrypTool speed ranking is inferred from these captures.
