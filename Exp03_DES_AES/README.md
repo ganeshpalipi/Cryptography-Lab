@@ -105,13 +105,13 @@ Both are symmetric block ciphers. DES uses a 16-round Feistel structure. AES use
 
 ECB reveals repeated plaintext blocks as repeated ciphertext blocks under the same key. CBC uses an IV and chaining, but does not itself authenticate messages. Neither demonstration provides an integrity check. Authenticated encryption such as AES-GCM is used in [Experiment 8](../Exp08_AES_Text_App/README.md).
 
-## Prepared timing workspaces
+## Matched timing workspaces and observed runs
 
-[Download the matched DES/AES timing workspaces and follow the run guide](timing/README.md). These are prepared drafts with the same 8 MiB input and ECB mode; Windows CrypTool execution and timing evidence are still pending.
+[Download the matched DES/AES timing workspaces and follow the run guide](timing/README.md). Both workspaces with the same 8 MiB input and ECB mode completed in Windows CrypTool. Three additional screenshots in the guide document the DES run, DES log and AES-256 run. Both completion messages display `0 seconds`, leaving precise durations and a controlled speed comparison unresolved.
 
 ## Performance observations
 
-The DES screenshots show **Calculation finished after 0 seconds**. This is a coarse GUI display, not evidence of zero processing time. The AES screenshots show output while the workspace remains in an executing state and do not provide a comparable duration. No CrypTool speed ranking is inferred from these captures.
+The matched 8 MiB DES and AES-256 runs both show **Calculation finished after 0 seconds** and components at 100%. This display does not resolve their actual processing durations and is not evidence of zero processing time. The DES log shows zero errors and one output-preview truncation warning. The AES log was not captured. No CrypTool speed ranking is inferred from these captures.
 
 ### Separate OpenSSL benchmark
 
@@ -133,7 +133,7 @@ python Exp03_DES_AES/openssl_comparison.py
 
 [Benchmark CSV](results/benchmark.csv) · [Full execution log](results/execution.txt) · [Machine-readable OpenSSL results](results/summary.json)
 
-The supplemental JSON's `cryptool_executed: false` describes that script's scope. The separate Windows CrypTool evidence is the five screenshots above.
+The supplemental JSON's `cryptool_executed: false` describes that script's scope. The separate Windows CrypTool evidence consists of the five practical screenshots above and three initial timing-run screenshots in the linked guide.
 
 The image below is a **rendered execution-log extract**, not an application screenshot:
 

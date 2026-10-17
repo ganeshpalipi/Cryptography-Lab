@@ -14,6 +14,7 @@
 | Work | Verification |
 |---|---|
 | CrypTool DES/AES practical | Five user-supplied Windows CrypTool 2.1 Build 9778.2 screenshots dated 17 October 2026; AES-256-CBC and DES-ECB recover the original 21-character message |
+| CrypTool matched 8 MiB initial runs | Three additional user-supplied screenshots: DES and AES-256 completed at 100%; both display 0 seconds, so durations remain unresolved; DES log shows zero errors and one preview truncation warning |
 | DES/AES supplement | 1 MiB round trips, five timed trials per cipher |
 | RSA/OAEP | Exact file round trip, oversized input and modified ciphertext rejection |
 | RSA-PSS signature | Saved signature verifies; changed message rejected |

@@ -1,8 +1,27 @@
-# CrypTool timing comparison — prepared workspaces
+# CrypTool timing comparison — observed runs
 
-**Status: prepared and structurally checked; not yet opened or executed in CrypTool. No timing results have been recorded.**
+**Status: both workspaces opened and completed on the user’s Windows CrypTool 2.1 Stable Build 9778.2 on 17 October 2026. Both displayed `0 seconds`; this does not resolve their processing times. Five measured trials and a valid speed comparison remain pending.**
 
 These derived workspaces use the user's working DES graph and AES component metadata. The original `AES_CBC_Demo.cwm` and `DES_ECB_Demo.cwm` remain unchanged.
+
+## Observed initial runs
+
+| Workspace | Input | Completion display | Interpretation |
+|---|---:|---|---|
+| DES-ECB | 8,388,608 ASCII characters | 0 seconds; components at 100% | Duration unresolved by the visible timer |
+| AES-256-ECB | 8,388,608 ASCII characters | 0 seconds; components at 100% | Duration unresolved by the visible timer |
+
+These are initial compatibility/warm-up observations, not five measured trials. No median, precise time, throughput or speed ranking is inferred. CPU and RAM have not been recorded.
+
+The DES log shows **0 Errors and 1 Warning**, from String Encoder truncating the output preview. Its timestamp is a clock time, not elapsed duration. The AES screenshot shows one String Encoder warning, but its log panel is not open, so the exact message and total error count were not captured. Both screenshots show ciphertext previews; these do not prove full 8 MiB round-trip recovery.
+
+![DES 8 MiB completed run](../screenshots/06_DES_8MiB_Run.png)
+
+![DES log with zero errors and preview truncation warning](../screenshots/07_DES_8MiB_Log.png)
+
+![AES-256 8 MiB completed run](../screenshots/08_AES256_8MiB_Run.png)
+
+**Next measurement requirement:** use a verified higher-resolution CrypTool timing method, or a matched workload with a clearly resolved duration, before collecting five measured runs. Repeating the same unresolved display does not establish a comparison.
 
 ## Download and run
 
@@ -19,7 +38,7 @@ On each GitHub file page, use **Download raw file**, then open the downloaded `.
 6. Capture the visible duration for every measured run. Record units exactly as displayed. Also record the CPU, RAM, Windows version and CrypTool version/build.
 7. If the display rounds to `0 seconds`, record **below display resolution**, not a measured zero. Stop and report this; a larger matched workload or higher-resolution timing method is needed before claiming a speed ranking.
 
-The first opening is also a compatibility check: these derived files were validated as gzip/XML with valid object references and matching inputs, but this environment cannot test the Windows CrypTool loader. If a file fails to open or reports an error, send the error screenshot; do not count that run.
+Both derived files have now opened and completed in the user’s Windows CrypTool. The preparation environment only validated their gzip/XML structure. For any future modified workload, check compatibility and errors again before collecting measurements.
 
 ## Controlled settings
 
@@ -45,7 +64,7 @@ The reported duration is for the **whole CrypTool workflow**, including conversi
 
 | Run | DES duration and unit | AES-256 duration and unit |
 |---|---|---|
-| Warm-up — exclude | Pending | Pending |
+| Initial run — exclude | Displayed 0 seconds; unresolved | Displayed 0 seconds; unresolved |
 | 1 | Pending | Pending |
 | 2 | Pending | Pending |
 | 3 | Pending | Pending |
