@@ -8,7 +8,7 @@
 | Faculty | Mr. Hirendra Singh Sengar |
 | Academic year | 2026–27 |
 
-**Evidence status:** Implemented and executed with OpenSSL on Linux. Actual terminal screenshots still need to be captured.
+**Evidence status:** Implemented and executed in the Linux preparation environment, then successfully run by the student in Windows PowerShell on 17 October 2026. Two original screenshots verify setup, exact recovery and both rejection checks. The required setup/result screenshots are recorded.
 
 ## Aim and algorithm
 
@@ -46,16 +46,29 @@ The exact commands and exit codes appear in the execution log. Fresh private key
 
 RSA is suitable for small values such as random symmetric keys. For large files, use hybrid encryption: encrypt the file with AES-GCM and encrypt only the AES key with RSA-OAEP. Splitting an arbitrary file into independently encrypted RSA blocks is not a replacement for a well-designed hybrid format. Encryption alone does not prove who sent a message.
 
-## Required screenshots to finish the submission
+## Student Windows execution and screenshots
 
-These are the captures still needed from the specified tool. Do not rename a rendered log image as a tool screenshot.
+Environment shown: **Python 3.9.13**, **OpenSSL 3.0.19 (27 January 2026)**, Windows PowerShell. The result screenshot shows RSA-3072 key generation, RSA-OAEP with SHA-256/MGF1-SHA256 encryption/decryption, and `All assertions passed.`
 
-- [ ] `01_OpenSSL_Setup.png` — OpenSSL version and command environment
-- [ ] `02_RSA_Results.png` — successful round trip, hash and negative checks
+| Observed check | Result |
+|---|---|
+| Key generation, public-key export, encryption and decryption | Exit code 0 |
+| Recovered file equals original | PASS |
+| 319-byte plaintext exceeds the 318-byte OAEP limit | Rejected, expected exit code 1 |
+| Modified ciphertext | Rejected, expected exit code 1 |
 
-Store the captures in a `screenshots` subfolder and add relative image links after the actual files exist.
+The exit code 1 entries are intentional negative checks, not a failed experiment.
 
-## Recorded execution evidence
+- [x] OpenSSL/Python setup screenshot
+- [x] RSA result screenshot with successful recovery, hash and rejection checks
+
+![Python and OpenSSL versions in Windows PowerShell](screenshots/01_OpenSSL_Setup.png)
+
+![RSA-OAEP round trip and rejection checks passed in Windows PowerShell](screenshots/02_RSA_Results.png)
+
+## Earlier Linux execution artifacts
+
+The files below belong to the earlier Linux preparation run. The student’s Windows run generates fresh keys and ciphertext; its files have not been supplied. The two screenshots above are the evidence of that separate Windows run.
 
 [Full execution log](results/execution.txt) · [Machine-readable results](results/summary.json)
 

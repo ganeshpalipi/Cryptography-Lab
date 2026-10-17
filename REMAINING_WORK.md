@@ -3,7 +3,7 @@
 This checklist records incomplete requirements, not fabricated results.
 
 - [ ] **Experiment 3 — DES vs AES:** AES/DES round trips, five screenshots and both saved `.cwm` workspaces recorded. Matched 8 MiB DES/AES runs and three additional screenshots recorded; both display 0 seconds. Resolved CrypTool timings and five measured trials remain pending. See [Exp03_DES_AES/README.md](Exp03_DES_AES/README.md).
-- [ ] **Experiment 4 — RSA file encryption:** Actual terminal setup/result screenshots. See [Exp04_OpenSSL_RSA/README.md](Exp04_OpenSSL_RSA/README.md).
+- [x] **Experiment 4 — RSA file encryption:** Windows PowerShell setup/result screenshots recorded; exact recovery, oversized-input rejection and modified-ciphertext rejection passed. See [Exp04_OpenSSL_RSA/README.md](Exp04_OpenSSL_RSA/README.md).
 - [ ] **Experiment 5 — SHA-256 and signatures:** Actual terminal screenshots. See [Exp05_OpenSSL_Signatures/README.md](Exp05_OpenSSL_Signatures/README.md).
 - [ ] **Experiment 6 — X.509 certificate:** Actual terminal screenshots. See [Exp06_X509_Certificate/README.md](Exp06_X509_Certificate/README.md).
 - [ ] **Experiment 7 — RSA and Diffie–Hellman:** Run/capture in required VS Code environment. See [Exp07_RSA_Diffie_Hellman/README.md](Exp07_RSA_Diffie_Hellman/README.md).
