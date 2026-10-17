@@ -8,7 +8,7 @@
 | Faculty | Mr. Hirendra Singh Sengar |
 | Academic year | 2026–27 |
 
-**Evidence status:** Implemented and executed with OpenSSL on Linux. Actual terminal screenshots are pending.
+**Evidence status:** Executed in the Linux preparation environment, then successfully run by the student in Windows PowerShell on 17 October 2026. An original terminal screenshot records OpenSSL 3.0.19, both SHA-256 hashes, successful signature verification and modified-message rejection.
 
 ## Aim and algorithm
 
@@ -45,16 +45,31 @@ The valid message returned `Verified OK`. The modified message had a different h
 
 A hash alone provides no sender authentication: an attacker who changes a file could also replace its untrusted hash. A verified signature establishes that the matching private key signed the message, provided the verifier has a trustworthy association between that public key and the claimed sender. Signing does not encrypt the message.
 
-## Required screenshots to finish the submission
+## Student Windows execution
 
-These are the captures still needed from the specified tool. Do not rename a rendered log image as a tool screenshot.
+One original screenshot captures both required evidence categories: the tool version and hash comparison, and the valid/modified-message verification results.
 
-- [ ] `01_OpenSSL_Hashes.png` — tool version and original/modified SHA-256 hashes
-- [ ] `02_Signature_Verification.png` — valid signature accepted and modified message rejected
+| Observed check | Result |
+|---|---|
+| OpenSSL version | 3.0.19, 27 January 2026 |
+| SHA-256 hashes of original and modified messages | Different digests shown |
+| RSA-3072 key generation and RSA-PSS/SHA-256 signing | Exit code 0 |
+| Original message signature verification | `Verified OK`, exit code 0 |
+| Modified message verification | Expected exit code 1; rejection check PASS |
+| Overall script | `All assertions passed.` |
 
-Store the captures in a `screenshots` subfolder and add relative image links after the actual files exist.
+The failed verification of the changed message is the intended negative test. It demonstrates detection of this message modification.
 
-## Recorded execution evidence
+- [x] Tool version and original/modified SHA-256 hashes captured
+- [x] Valid signature acceptance and modified-message rejection captured
+
+![Windows PowerShell showing SHA-256 hashes, RSA-PSS signing and verification checks](screenshots/01_Hashes_and_Signature_Verification.png)
+
+The generic CLI-run notice printed at the top describes the program's text log. This image itself is an original student-supplied screenshot of Windows PowerShell.
+
+## Earlier Linux execution artifacts
+
+The files below remain from the earlier Linux preparation run. The student’s Windows run generated a fresh key pair and signature; those files have not been supplied. The screenshot above separately records the Windows result.
 
 [Full execution log](results/execution.txt) · [Machine-readable results](results/summary.json)
 
