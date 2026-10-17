@@ -29,7 +29,7 @@ OpenSSL signatures and certificate files were also independently verified after 
 
 ## What was not executed
 
-CrypTool was not executed in the Linux preparation environment; Experiment 3 was subsequently verified from the user's Windows screenshots. Controlled CrypTool timing and saved workspace uploads remain pending. Wireshark captures, two-system SSH authentication, an OpenVPN tunnel and Cisco Packet Tracer were not executed here. Raw capture permission was unavailable, and a TUN device and the required GUI tools were unavailable. The OpenVPN generator was syntax-checked only. Linux command-line execution is not evidence of using VS Code or Kali.
+CrypTool was not executed in the Linux preparation environment; Experiment 3 was subsequently verified from the user's Windows screenshots. Both original `.cwm` workspaces were subsequently supplied and uploaded without modification; their gzip/XML structure was validated, but they were not executed here. Controlled CrypTool timing remains pending. Wireshark captures, two-system SSH authentication, an OpenVPN tunnel and Cisco Packet Tracer were not executed here. Raw capture permission was unavailable, and a TUN device and the required GUI tools were unavailable. The OpenVPN generator was syntax-checked only. Linux command-line execution is not evidence of using VS Code or Kali.
 
 ## Image provenance
 

@@ -18,7 +18,7 @@ This repository contains 16 separately documented experiments. **The record is n
 |---:|---|---|---|
 | 1 | [Caesar, Vigenère, Rail Fence](Exp01_Classical_Ciphers/README.md) | Existing practical screenshots and README retained | None identified in existing image links |
 | 2 | [Frequency analysis](Exp02_Frequency_Analysis/README.md) | Existing Caesar practical retained; four image filenames fixed | Image paths corrected and validated |
-| 3 | [DES vs AES](Exp03_DES_AES/README.md) | CrypTool AES/DES round trips verified; five actual screenshots; supplemental OpenSSL benchmark | Controlled CrypTool timing and saved .cwm uploads |
+| 3 | [DES vs AES](Exp03_DES_AES/README.md) | CrypTool AES/DES round trips verified; five actual screenshots and both .cwm workspaces; supplemental OpenSSL benchmark | Controlled CrypTool timing |
 | 4 | [RSA file encryption](Exp04_OpenSSL_RSA/README.md) | OpenSSL run and rejection checks passed | Actual terminal setup/result screenshots |
 | 5 | [SHA-256 and signatures](Exp05_OpenSSL_Signatures/README.md) | OpenSSL signature and tamper tests passed | Actual terminal screenshots |
 | 6 | [X.509 certificate](Exp06_X509_Certificate/README.md) | Certificate and trust/hostname tests passed | Actual terminal screenshots |

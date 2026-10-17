@@ -10,11 +10,18 @@
 | Practical software | CrypTool 2.1, Stable Build 9778.2, Windows |
 | Screenshot date | 17 October 2026 |
 
-**Evidence status:** AES and DES encryption/decryption were verified from five supplied CrypTool screenshots. Both recovered the original message. A supplemental OpenSSL benchmark is available. Controlled CrypTool performance measurements and actual saved `.cwm` workspace uploads remain pending.
+**Evidence status:** AES and DES encryption/decryption were verified from five supplied CrypTool screenshots. Both recovered the original message. A supplemental OpenSSL benchmark is available. Both saved `.cwm` workspaces are included. Controlled CrypTool performance measurements remain pending.
 
 ## Aim
 
 Encrypt and decrypt the same message using DES and AES, compare their security properties, and distinguish functional results from measured performance.
+
+## Saved CrypTool workspaces
+
+- [AES_CBC_Demo.cwm](AES_CBC_Demo.cwm)
+- [DES_ECB_Demo.cwm](DES_ECB_Demo.cwm)
+
+These are the original user-supplied workspace files, preserved byte-for-byte. Their gzip/XML structure was checked before upload; they were not reopened or executed in the preparation environment. Download them and open them in CrypTool 2.1. The screenshots below record the observed practical runs.
 
 ## Plaintext
 
@@ -138,7 +145,7 @@ The screenshots demonstrate successful AES-256-CBC and DES-ECB encryption/decryp
 - [x] AES encryption and decryption screenshots
 - [x] DES encryption and decryption screenshots
 - [x] Security comparison and supplemental benchmark documentation
-- [ ] Upload actual saved `AES_CBC_Demo.cwm` and `DES_ECB_Demo.cwm` files; neither workspace has been supplied yet
+- [x] Upload actual saved `AES_CBC_Demo.cwm` and `DES_ECB_Demo.cwm` files
 - [ ] Record controlled CrypTool timing with the same larger input and mode, one warm-up and five measured runs per algorithm; document machine, input size, padding, key preparation and timer resolution
 
 ## References
