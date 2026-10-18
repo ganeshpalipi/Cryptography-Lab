@@ -18,7 +18,7 @@
 | DES/AES supplement | 1 MiB round trips, five timed trials per cipher |
 | RSA/OAEP | Linux run plus two original student Windows PowerShell screenshots dated 17 October 2026: Python 3.9.13, OpenSSL 3.0.19, exact file round trip, oversized-input and modified-ciphertext rejection; all assertions passed |
 | RSA-PSS signature | Linux run plus an original student Windows PowerShell screenshot dated 17 October 2026: OpenSSL 3.0.19, distinct SHA-256 hashes, valid signature accepted and changed message rejected; all assertions passed |
-| X.509 | Explicit trust and hostname pass; wrong hostname/untrusted certificate rejected |
+| X.509 | Linux run plus three original student Windows PowerShell screenshots dated 17 October 2026: Python 3.9.13, OpenSSL 3.0.19, generation, attributes, explicit trust and correct hostname pass, wrong hostname/untrusted certificate rejected; all assertions passed |
 | RSA/DH | Toy arithmetic, RSA-OAEP, shared-secret equality, HKDF and AES-GCM round trip |
 | AES app | Unicode/empty input, wrong-key/tamper rejection, CLI file round trip |
 | Password hashing | Equal unsalted hashes, distinct salted hashes, small dictionary/scrypt comparison |
@@ -32,7 +32,7 @@ OpenSSL signatures and certificate files were also independently verified after 
 
 CrypTool was not executed in the Linux preparation environment; Experiment 3 was subsequently verified from the user's Windows screenshots. Both original `.cwm` workspaces were subsequently supplied and uploaded without modification; their gzip/XML structure was validated, but they were not executed here. Controlled CrypTool timing remains pending. Wireshark captures, two-system SSH authentication, an OpenVPN tunnel and Cisco Packet Tracer were not executed here. Raw capture permission was unavailable, and a TUN device and the required GUI tools were unavailable. The OpenVPN generator was syntax-checked only. Linux command-line execution is not evidence of using VS Code or Kali.
 
-The Experiment 4 and 5 files under `results/` remain artifacts of their earlier Linux runs. Windows execution is separately evidenced by the student’s terminal screenshots; Windows-generated public artifacts and logs have not been supplied.
+The Experiment 4, 5 and 6 files under `results/` remain artifacts of their earlier Linux runs. Windows execution is separately evidenced by the student’s terminal screenshots; Windows-generated public artifacts and logs have not been supplied.
 
 ## Image provenance
 

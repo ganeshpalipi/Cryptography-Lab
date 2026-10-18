@@ -8,7 +8,7 @@
 | Faculty | Mr. Hirendra Singh Sengar |
 | Academic year | 2026–27 |
 
-**Evidence status:** Certificate generated, inspected and verified with OpenSSL. Actual terminal screenshots are pending.
+**Evidence status:** The student generated, inspected and verified a self-signed certificate in Windows PowerShell on 17 October 2026. Three original screenshots record generation, attributes and trust/hostname tests. All assertions passed.
 
 ## Aim
 
@@ -38,23 +38,53 @@ The script generates an RSA-3072 key and a certificate signed with SHA-256, requ
 | Validity | Concrete notBefore/notAfter dates appear in the saved output |
 | Serial and fingerprint | Identify this generated certificate; regenerated certificates differ |
 
-Read [certificate_details.txt](results/certificate_details.txt) for the actual serial, validity dates and extensions. The public [certificate.pem](results/certificate.pem) is included; its private key is not retained.
+The earlier Linux run’s [certificate_details.txt](results/certificate_details.txt) and public [certificate.pem](results/certificate.pem) remain available. The Windows run generated a different certificate, evidenced by the screenshots below; its certificate file has not been supplied. Private keys are not retained by the runner.
 
 ## Result and interpretation
 
 Explicit-trust verification for `localhost` passed. A different hostname failed. Verification with no trusted CA source failed for the self-signed certificate. Its signature protects the certificate contents, but self-signing does not establish third-party identity trust. Valid dates and an intact signature alone are insufficient for public trust.
 
-## Required screenshots to finish the submission
+## Student Windows execution
 
-These are the captures still needed from the specified tool. Do not rename a rendered log image as a tool screenshot.
+Environment: Windows AMD64, Python 3.9.13 and OpenSSL 3.0.19 (27 January 2026). The generation screenshot shows the saved run log, including the RSA-3072/SHA-256 generation command and exit code 0. The attributes screenshot shows a direct inspection of the saved Windows certificate.
 
-- [ ] `01_Certificate_Generation.png` — OpenSSL version and generation command
-- [ ] `02_Certificate_Attributes.png` — subject, issuer, validity, SAN and extensions
-- [ ] `03_Certificate_Verification.png` — trusted verification and rejection checks
+| Observed attribute or check | Windows result |
+|---|---|
+| Subject and issuer | `C=IN, O=Cryptography Lab, CN=localhost` |
+| Valid from | 17 October 2026, 14:31:45 GMT |
+| Valid until | 17 October 2027, 14:31:45 GMT |
+| SAN | `DNS:localhost`, `IP Address:127.0.0.1` |
+| Basic constraints | Critical; `CA:FALSE` |
+| Key usage | Critical; Digital Signature, Key Encipherment |
+| Extended key usage | TLS Web Server Authentication |
+| Explicit trust and correct hostname | `certificate.pem: OK`, exit code 0 |
+| Wrong hostname | Rejected, expected exit code 2; PASS |
+| No explicit trust | Rejected, expected exit code 2; PASS |
+| Overall run | `All assertions passed.` |
 
-Store the captures in a `screenshots` subfolder and add relative image links after the actual files exist.
+The exit code 2 entries are expected negative tests, not a failed experiment. The date range is the certificate’s validity period, not evidence of public trust.
 
-## Recorded execution evidence
+- [x] OpenSSL version and certificate generation command
+- [x] Subject, issuer, validity, SAN and extensions
+- [x] Trusted verification and rejection checks
+
+### Generation
+
+![Original Windows PowerShell screenshot of saved generation log](screenshots/01_Certificate_Generation.png)
+
+### Certificate attributes
+
+![Direct inspection of Windows certificate identity, validity and extensions](screenshots/02_Certificate_Attributes.png)
+
+### Verification
+
+![Correct-hostname verification and rejection checks passed](screenshots/03_Certificate_Verification.png)
+
+The generic CLI-run notice in the text log describes the program output; these images are actual student-supplied Windows PowerShell screenshots.
+
+## Earlier Linux execution artifacts
+
+These files belong to the earlier Linux preparation run. They must not be interpreted as the certificate or log from the separate Windows run above.
 
 [Full execution log](results/execution.txt) · [Machine-readable results](results/summary.json)
 
