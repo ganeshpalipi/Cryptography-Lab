@@ -23,6 +23,7 @@
 | AES app | Linux Unicode/empty-message and CLI file tests; original student Windows VS Code screenshot dated 18 October 2026 records demo code, Python 3.9.13, cryptography 50.0.2, exact recovery, matching SHA-256, fresh nonce and wrong-key/tamper rejection; all assertions passed |
 | Password hashing | Linux run plus two original student Windows VS Code screenshots dated 18 October 2026: Python 3.9.13, equal unsalted hashes, distinct salted hashes, five-entry dictionary/scrypt comparison and wrong-password rejection; all assertions passed |
 | HTTP/TLS fixture | Actual localhost HTTP, TLS 1.2 and TLS 1.3 exchanges |
+| Windows Wireshark TLS capture | Student supplied original 21-packet `tls12_lab.pcapng` and seven screenshots dated 18 October 2026; loopback TCP port 8443, TLS 1.2 / ECDHE-RSA-AES256-GCM-SHA384, certificate fields and encrypted application records verified |
 | John | Dictionary weak-password recovery and bounded three-digit PIN recovery |
 | SSH supplement | RSA key generation and public-key fingerprint only |
 
@@ -30,7 +31,7 @@ OpenSSL signatures and certificate files were also independently verified after 
 
 ## What was not executed
 
-CrypTool was not executed in the Linux preparation environment; Experiment 3 was subsequently verified from the user's Windows screenshots. Both original `.cwm` workspaces were subsequently supplied and uploaded without modification; their gzip/XML structure was validated, but they were not executed here. Controlled CrypTool timing remains pending. Wireshark captures, two-system SSH authentication, an OpenVPN tunnel and Cisco Packet Tracer were not executed here. Raw capture permission was unavailable, and a TUN device and the required GUI tools were unavailable. The OpenVPN generator was syntax-checked only. Linux command-line execution is not evidence of using VS Code or Kali.
+CrypTool was not executed in the Linux preparation environment; Experiment 3 was subsequently verified from the user's Windows screenshots. Both original `.cwm` workspaces were subsequently supplied and uploaded without modification; their gzip/XML structure was validated, but they were not executed here. Controlled CrypTool timing remains pending. Wireshark was not executed in the Linux preparation environment; the student subsequently captured Experiment 10 on Windows and supplied the original PCAPNG and GUI screenshots. The supplied PCAPNG was parsed offline and its certificate decoded with OpenSSL. Two-system SSH authentication, an OpenVPN tunnel and Cisco Packet Tracer were not executed here. Raw capture permission was unavailable, and a TUN device and the required GUI tools were unavailable. The OpenVPN generator was syntax-checked only. Linux command-line execution is not evidence of using VS Code or Kali.
 
 The Experiment 4 through 9 files under `results/` remain artifacts of their earlier Linux runs. Windows execution is separately evidenced by the student’s terminal screenshots; Windows-generated public artifacts and logs have not been supplied.
 
@@ -43,3 +44,8 @@ New `results/execution_log.png` images render actual saved log extracts with a c
 Run each listed script from the repository root following its README. Python assertions enforce the stated comparisons. Do not run with Python's `-O` option because it disables assertions. `tools/check_repository.py` validates local image references and the 16 README folders, not practical completion.
 
 Public lab test keys/passwords in examples are teaching inputs. Actual generated private keys are temporary or kept under ignored `.private` paths; no reusable private key is included in the deliverable.
+
+
+## Experiment 10 capture provenance
+
+The PCAPNG and seven PNG screenshots are unmodified student uploads. The capture SHA-256 is `9b30f533a8ddacce3febae3f76a3ec2fb1aeca4dc7949e1f871b5f9ad21738f1`. All 21 captured packets use 127.0.0.1 with TCP port 8443; screenshots report zero dropped packets. No TLS session secrets or server private key were supplied. Existing Experiment 10 `results/` files remain the earlier Linux application-level fixture evidence, separate from this Windows packet capture.

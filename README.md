@@ -25,7 +25,7 @@ This repository contains 16 separately documented experiments. **The record is n
 | 7 | [RSA and Diffie–Hellman](Exp07_RSA_Diffie_Hellman/README.md) | Windows VS Code RSA/DH/HKDF/AES-GCM checks passed; two actual screenshots recorded | None for the documented practical |
 | 8 | [AES text application](Exp08_AES_Text_App/README.md) | Windows VS Code AES demo passed; code, round trip and rejection checks captured | None for the documented demo |
 | 9 | [Password hashing and salt](Exp09_Password_Hashing/README.md) | Windows VS Code salt/dictionary/scrypt comparison passed; two actual screenshots recorded | None for the documented practical |
-| 10 | [TLS capture](Exp10_TLS_Wireshark/README.md) | Local HTTP/TLS fixture executed | Wireshark capture and packet analysis |
+| 10 | [TLS capture](Exp10_TLS_Wireshark/README.md) | Windows Wireshark TLS 1.2 capture, certificate/cipher analysis and seven original screenshots recorded | None for the documented TLS 1.2 practical |
 | 11 | [VPN vs plaintext](Exp11_VPN_Traffic_Analysis/README.md) | Detailed controlled procedure prepared | Experiment 15 tunnel and Wireshark captures |
 | 12 | [Secure/insecure protocols](Exp12_Protocol_Security/README.md) | Local fixture and procedure prepared | Wireshark HTTP/HTTPS capture |
 | 13 | [John password audit](Exp13_John_Password_Audit/README.md) | Actual John dictionary and bounded PIN audit passed | Kali execution/environment screenshots |
@@ -46,6 +46,7 @@ The first command executes Experiments 4–9 and refreshes text/JSON evidence. I
 
 ## Evidence policy
 
-Experiments 1–9 contain supplied tool screenshots. Newly prepared `results/execution_log.png` files are explicitly labeled **rendered execution log extracts**, not application screenshots. Full text logs and JSON summaries are alongside them. No failed/unexecuted practical has been represented as completed. Private keys and VPN profiles stay out of version control.
+Experiments 1–10 contain supplied tool screenshots. Newly prepared `results/execution_log.png` files are explicitly labeled **rendered execution log extracts**, not application screenshots. Full text logs and JSON summaries are alongside them. No failed/unexecuted practical has been represented as completed. Private keys and VPN profiles stay out of version control.
 
 All new code and documentation were prepared with AI assistance, with command-line experiments executed in a Linux preparation environment. Review, understand and reproduce the required practicals in the assigned tools before submission, following the course's rules for assisted work.
+
