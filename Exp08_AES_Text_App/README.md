@@ -8,7 +8,7 @@
 | Faculty | Mr. Hirendra Singh Sengar |
 | Academic year | 2026–27 |
 
-**Evidence status:** Application and positive/negative tests executed in Linux CLI. VS Code screenshots are pending.
+**Evidence status:** Application and positive/negative tests executed in Linux CLI, then the student successfully ran the demo in Windows VS Code on 18 October 2026. An original screenshot records code, interpreter, matching hashes and rejection checks; all assertions passed.
 
 ## Aim and design
 
@@ -21,6 +21,14 @@ After installing `requirements.txt`, run from the repository root in VS Code:
 ```powershell
 python Exp08_AES_Text_App/app.py demo
 ```
+
+For the student’s experiment-local environment, run the following from inside `Exp08_AES_Text_App`:
+
+```powershell
+..\Exp07_RSA_Diffie_Hellman\.venv\Scripts\python.exe .\app.py demo
+```
+
+This reuses the environment already installed for Experiment 7.
 
 ## Use the application with your own lab text
 
@@ -46,17 +54,37 @@ Use a new output filename if one already exists. The application refuses to over
 
 The demo passed Unicode and empty-message round trips, verified a fresh nonce on a repeated encryption, and rejected a wrong key and a modified ciphertext. The full output and digest are in `results`. SHA-256 is a comparison aid; GCM's keyed tag provides message authentication. Never intentionally reuse a nonce with the same GCM key.
 
-## Required screenshots to finish the submission
+## Student Windows VS Code demonstration
 
-These are the captures still needed from the specified tool. Do not rename a rendered log image as a tool screenshot.
+The original screenshot shows `app.py`, the selected `.venv (3.9.13)` interpreter, cryptography 50.0.2, and the demo executed through the Experiment 7 virtual environment. It contains all three requested screenshot categories in one capture.
 
-- [ ] `01_VSCode_AES_App.png` — application code and interpreter
-- [ ] `02_AES_Round_Trip.png` — original/recovered messages and hashes
-- [ ] `03_AES_Tamper_Check.png` — wrong key and modified ciphertext rejected
+| Observed check | Result |
+|---|---|
+| Algorithm | AES-256-GCM; 12-byte random nonce; 16-byte tag |
+| Original and recovered message | Same displayed text; exact bytes match PASS |
+| Original and recovered SHA-256 | Equal |
+| Repeated encryption | Fresh nonce check PASS |
+| Wrong key | Rejected; PASS |
+| Modified ciphertext | Rejected; PASS |
+| Overall demo | All assertions passed |
 
-Store the captures in a `screenshots` subfolder and add relative image links after the actual files exist.
+The shared SHA-256 digest displayed in this run is:
 
-## Recorded execution evidence
+```text
+c35aca68dc76d4e9acf4659604197b42b582918d8143bbe0f9ee008ffdcd5c03
+```
+
+- [x] Application code and Python interpreter captured
+- [x] Original/recovered messages and matching hashes captured
+- [x] Wrong-key and modified-ciphertext rejection captured
+
+![Original Windows VS Code screenshot showing AES demo code, round trip, hashes and rejection checks](screenshots/01_VSCode_AES_Demo.png)
+
+This screenshot records the `demo` command. Separate file-based `keygen`, `encrypt` and `decrypt` commands were tested in the earlier Linux preparation environment; they are not shown as Windows executions here.
+
+## Earlier Linux execution artifacts
+
+The files below remain from the earlier Linux preparation run. The Windows run used a fresh temporary key and ciphertext; its generated results files have not been supplied. Its actual VS Code screenshot is recorded separately above.
 
 [Full execution log](results/execution.txt) · [Machine-readable results](results/summary.json)
 
