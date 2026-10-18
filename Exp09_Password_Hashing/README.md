@@ -8,7 +8,7 @@
 | Faculty | Mr. Hirendra Singh Sengar |
 | Academic year | 2026–27 |
 
-**Evidence status:** All three methods and a small dictionary comparison executed. VS Code screenshots are pending.
+**Evidence status:** Executed in Linux, then successfully run by the student in Windows VS Code on 18 October 2026. Two original screenshots record source/interpreter, unsalted and salted hashes, dictionary comparisons and scrypt checks; all assertions passed.
 
 ## Aim
 
@@ -20,7 +20,11 @@ Compare unsalted SHA-256, salted SHA-256 and a password-specific derivation func
 python Exp09_Password_Hashing/main.py
 ```
 
-This experiment only needs Python's standard library. Run it in VS Code for the assignment's environment evidence.
+This experiment only needs Python's standard library. Run it in VS Code for the assignment's environment evidence. The student reused the Experiment 7 environment; from inside `Exp09_Password_Hashing`, the command is:
+
+```powershell
+..\Exp07_RSA_Diffie_Hellman\.venv\Scripts\python.exe .\main.py
+```
 
 ## Procedure and algorithm
 
@@ -41,17 +45,37 @@ This experiment only needs Python's standard library. Run it in VS Code for the 
 
 Timing values in `summary.json` are local observations, not universal cracking-time estimates. The selected scrypt cost is a lab parameter; production systems must choose and benchmark a current password-storage policy.
 
-## Required screenshots to finish the submission
+## Student Windows VS Code execution
 
-These are the captures still needed from the specified tool. Do not rename a rendered log image as a tool screenshot.
+Two original screenshots dated 18 October 2026 show the source, selected Python 3.9.13 virtual environment and Windows AMD64 output. The salt-comparison image displays the saved run log using `Get-Content`; the other image records the completed program output. Together they cover the three required evidence categories.
 
-- [ ] `01_VSCode_Hashing.png` — source and interpreter
-- [ ] `02_Salt_Comparison.png` — same password with/without distinct salts
-- [ ] `03_Dictionary_Comparison.png` — dictionary results, scrypt cost and verification
+| Observed check | Windows result |
+|---|---|
+| Same synthetic password, unsalted SHA-256 | Account A and B hashes identical |
+| Independent random salts | Distinct salts and distinct salted hashes; PASS |
+| Five-entry supplied dictionary | Weak sample recovered with unsalted SHA-256, salted SHA-256 and scrypt |
+| scrypt settings | N=16384, r=8, p=1; 16-byte salt; 32-byte derived key |
+| One scrypt derivation | 59.11 ms |
+| Dictionary search until match | 141.28 ms |
+| Correct/wrong password checks | Correct accepted, wrong rejected; PASS |
+| Second synthetic sample | Not found in this five-entry dictionary |
+| Overall run | All assertions passed |
 
-Store the captures in a `screenshots` subfolder and add relative image links after the actual files exist.
+The timing numbers are single-run observations from this Windows execution, not benchmark medians or universal password-cracking estimates. The second sample's absence from a five-entry dictionary does not prove it uncrackable. Salting changes the hashes but does not prevent guessing a weak password that is in the dictionary.
 
-## Recorded execution evidence
+- [x] VS Code source and Python interpreter captured
+- [x] Equal unsalted hashes and distinct salted hashes captured
+- [x] Dictionary results, scrypt timing and password verification captured
+
+![VS Code source and saved Windows salt comparison output](screenshots/01_Salt_Comparison.png)
+
+![VS Code dictionary, scrypt timing and password-verification results](screenshots/02_Dictionary_and_Scrypt_Results.png)
+
+The generic CLI-run notice describes the program text log; these images are actual student-supplied VS Code screenshots. All passwords shown are synthetic lab examples.
+
+## Earlier Linux execution artifacts
+
+These files remain from the earlier Linux preparation run. Their random salts and timing values differ from the separate Windows run above. Windows-generated log and JSON files have not been supplied; its screenshots are recorded above.
 
 [Full execution log](results/execution.txt) · [Machine-readable results](results/summary.json)
 
