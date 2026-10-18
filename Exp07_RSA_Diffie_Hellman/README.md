@@ -8,7 +8,7 @@
 | Faculty | Mr. Hirendra Singh Sengar |
 | Academic year | 2026–27 |
 
-**Evidence status:** Code executed successfully in Linux CLI. Run it in the required VS Code environment and capture screenshots.
+**Evidence status:** Executed in Linux CLI, then successfully run by the student in the required VS Code environment on Windows on 18 October 2026. Two original screenshots record code, the Python 3.9.13 virtual environment, cryptography 50.0.2 and all checks passing.
 
 ## Aim
 
@@ -16,7 +16,7 @@ Implement RSA arithmetic and Diffie–Hellman key exchange, then demonstrate lib
 
 ## Setup and run in VS Code
 
-Open the repository folder. In the integrated terminal:
+Open the repository folder. With the integrated terminal located at the repository root:
 
 ```powershell
 python -m venv .venv
@@ -25,6 +25,15 @@ python -m venv .venv
 ```
 
 Select `.venv` as the Python interpreter if VS Code asks. On Linux use `.venv/bin/python` instead.
+
+If the terminal is already inside `Exp07_RSA_Diffie_Hellman` and `.venv` was created there, use these paths instead:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r ..\requirements.txt
+.\.venv\Scripts\python.exe .\main.py
+```
+
+This is the layout used for the student’s successful Windows run. The requirements file is in the parent repository folder.
 
 ## Algorithms
 
@@ -41,22 +50,40 @@ Select `.venv` as the Python interpreter if VS Code asks. On Linux use `.venv/bi
 5. Derive matching 32-byte AES keys with HKDF and the same salt/context.
 6. Encrypt using Alice's derived key and decrypt with Bob's key using AES-GCM; the round trip passes.
 
-The installed cryptography version warns that finite-field DH is deprecated; this experiment retains it to illustrate the assigned algorithm. Modern applications generally use a modern authenticated key-exchange protocol. The actual secret values are not logged.
+The earlier Linux preparation run emitted a warning that finite-field DH is deprecated; this experiment retains it to illustrate the assigned algorithm. Modern applications generally use a modern authenticated key-exchange protocol. The actual secret values are not logged.
 
 ## Limitation
 
 Equal DH secrets demonstrate agreement, not peer identity. Without authenticated public keys, DH is vulnerable to a man-in-the-middle attack. This standalone demonstration is not a production secure channel.
 
-## Required screenshots to finish the submission
+## Student VS Code execution
 
-These are the captures still needed from the specified tool. Do not rename a rendered log image as a tool screenshot.
+Both original screenshots were supplied on 18 October 2026. They show the VS Code integrated PowerShell terminal, an experiment-local `.venv`, cryptography 50.0.2, and `All assertions passed.` The code screenshot also shows the `.venv (3.9.13)` interpreter in the status bar.
 
-- [ ] `01_VSCode_Setup.png` — code, interpreter and dependency setup
-- [ ] `02_RSA_DH_Output.png` — toy arithmetic, RSA and DH/HKDF checks
+| Observed check | Result |
+|---|---|
+| Textbook RSA | n=3233, e=17, d=2753, message=65, ciphertext=2790, recovered=65 |
+| Textbook DH | p=23, g=5, A=8, B=19, shared=2 |
+| RSA-3072 / OAEP SHA-256 round trip | PASS |
+| DH 2048-bit shared secrets | Match |
+| HKDF-derived keys | Match |
+| AES-GCM round trip with derived keys | PASS |
+| Overall run | All assertions passed |
 
-Store the captures in a `screenshots` subfolder and add relative image links after the actual files exist.
+The tiny textbook values are teaching inputs. Real private keys, DH shared secrets and derived AES keys are not displayed. Peer authentication is not implemented by this standalone example.
 
-## Recorded execution evidence
+- [x] VS Code source code, selected interpreter and runtime dependency version captured
+- [x] Toy arithmetic and library RSA/DH/HKDF/AES-GCM results captured
+
+![VS Code source, Python virtual environment and successful execution](screenshots/01_VSCode_Setup.png)
+
+![VS Code integrated terminal with RSA and DH checks passing](screenshots/02_RSA_DH_Output.png)
+
+The generic CLI-run notice in the text output describes the program log; these images are original screenshots of the actual VS Code window.
+
+## Earlier Linux execution artifacts
+
+The files below remain from the earlier Linux preparation run. The student’s Windows output is separately evidenced by the screenshots above; the Windows-generated log and JSON have not been supplied.
 
 [Full execution log](results/execution.txt) · [Machine-readable results](results/summary.json)
 

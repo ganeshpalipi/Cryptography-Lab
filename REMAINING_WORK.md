@@ -6,7 +6,7 @@ This checklist records incomplete requirements, not fabricated results.
 - [x] **Experiment 4 — RSA file encryption:** Windows PowerShell setup/result screenshots recorded; exact recovery, oversized-input rejection and modified-ciphertext rejection passed. See [Exp04_OpenSSL_RSA/README.md](Exp04_OpenSSL_RSA/README.md).
 - [x] **Experiment 5 — SHA-256 and signatures:** Windows PowerShell screenshot records tool version, different hashes, valid signature acceptance and modified-message rejection. See [Exp05_OpenSSL_Signatures/README.md](Exp05_OpenSSL_Signatures/README.md).
 - [x] **Experiment 6 — X.509 certificate:** Three Windows PowerShell screenshots record generation, certificate attributes, trusted verification, wrong-hostname rejection and untrusted-certificate rejection. See [Exp06_X509_Certificate/README.md](Exp06_X509_Certificate/README.md).
-- [ ] **Experiment 7 — RSA and Diffie–Hellman:** Run/capture in required VS Code environment. See [Exp07_RSA_Diffie_Hellman/README.md](Exp07_RSA_Diffie_Hellman/README.md).
+- [x] **Experiment 7 — RSA and Diffie–Hellman:** Two Windows VS Code screenshots record code, interpreter, dependency version and all RSA/DH/HKDF/AES-GCM checks passing. See [Exp07_RSA_Diffie_Hellman/README.md](Exp07_RSA_Diffie_Hellman/README.md).
 - [ ] **Experiment 8 — AES text application:** VS Code screenshots. See [Exp08_AES_Text_App/README.md](Exp08_AES_Text_App/README.md).
 - [ ] **Experiment 9 — Password hashing and salt:** VS Code screenshots. See [Exp09_Password_Hashing/README.md](Exp09_Password_Hashing/README.md).
 - [ ] **Experiment 10 — TLS capture:** Wireshark capture and packet analysis. See [Exp10_TLS_Wireshark/README.md](Exp10_TLS_Wireshark/README.md).
