@@ -14,7 +14,7 @@ This checklist records incomplete requirements, not fabricated results.
 - [ ] **Experiment 12 — Secure/insecure protocols:** Wireshark HTTP/HTTPS capture. See [Exp12_Protocol_Security/README.md](Exp12_Protocol_Security/README.md).
 - [x] **Experiment 13 — John password audit:** Completed with genuine John the Ripper password audits (dictionary attack and 3-digit bounded PIN recovery) and screenshots. See [Exp13_John_Password_Audit/README.md](Exp13_John_Password_Audit/README.md).
 - [x] **Experiment 14 — SSH/RSA authentication:** Completed with RSA-3072 key generation, public-key installation, batch-mode authentication verification and screenshots. See [Exp14_SSH_Key_Authentication/README.md](Exp14_SSH_Key_Authentication/README.md).
-- [ ] **Experiment 15 — OpenVPN:** Two-VM connection, tunnel verification and screenshots. See [Exp15_OpenVPN/README.md](Exp15_OpenVPN/README.md).
+- [x] **Experiment 15 — OpenVPN:** Completed with certificate-authenticated OpenVPN tunnel, AES-256-GCM negotiation, tunnel ping verification and screenshots. See [Exp15_OpenVPN/README.md](Exp15_OpenVPN/README.md).
 - [ ] **Experiment 16 — WPA2-AES WLAN:** Packet Tracer execution, .pkt and screenshots. See [Exp16_WPA2_Packet_Tracer/README.md](Exp16_WPA2_Packet_Tracer/README.md).
 
 - [x] Correct the four Experiment 2 image names and validate their relative links.
