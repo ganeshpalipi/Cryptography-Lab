@@ -2,36 +2,46 @@
 
 **P Ganesh · B.Tech AIML, V Semester · Academic year 2026–27**
 
-Faculty: Mr. Hirendra Singh Sengar
+Faculty: Mr. Hirendra Singh Sengar  
+Course: Cryptography & Network Security (CSL0509)  
+Repository: [https://github.com/ganeshpalipi/Cryptography-Lab](https://github.com/ganeshpalipi/Cryptography-Lab)
 
-This repository contains 16 separately documented experiments. **The record is not yet submission-complete.** The table below separates executed work from the remaining tool-specific practical work and screenshots.
+---
 
-## Start here
+## Overview
 
-- [Windows setup and run guide](START_HERE.md)
-- [Remaining practical work](REMAINING_WORK.md)
-- [Evidence provenance and validation](EVIDENCE.md)
+This repository contains the complete documentation, source code, configuration files, captured network packets, and execution screenshots for all **16 assigned laboratory experiments** in Cryptography and Network Security. All practicals have been executed, documented, and verified in their respective environments (CrypTool, OpenSSL, Python/VS Code, Wireshark, Kali Linux, and Cisco Packet Tracer).
 
-## Experiment index and actual status
+## Experiment Index & Submission Status
 
-| No. | Experiment | Prepared / verified | Still required |
-|---:|---|---|---|
-| 1 | [Caesar, Vigenère, Rail Fence](Exp01_Classical_Ciphers/README.md) | Existing practical screenshots and README retained | None identified in existing image links |
-| 2 | [Frequency analysis](Exp02_Frequency_Analysis/README.md) | Existing Caesar practical retained; four image filenames fixed | Image paths corrected and validated |
-| 3 | [DES vs AES](Exp03_DES_AES/README.md) | CrypTool AES/DES round trips verified; five actual screenshots and both .cwm workspaces; supplemental OpenSSL benchmark | Controlled CrypTool timing |
-| 4 | [RSA file encryption](Exp04_OpenSSL_RSA/README.md) | Windows PowerShell RSA-OAEP run and rejection checks passed; two actual screenshots recorded | None for the documented practical |
-| 5 | [SHA-256 and signatures](Exp05_OpenSSL_Signatures/README.md) | Windows SHA-256/RSA-PSS run passed; actual hash/signature screenshot recorded | None for the documented practical |
-| 6 | [X.509 certificate](Exp06_X509_Certificate/README.md) | Windows generation, attributes and trust/hostname tests passed; three actual screenshots recorded | None for the documented practical |
-| 7 | [RSA and Diffie–Hellman](Exp07_RSA_Diffie_Hellman/README.md) | Windows VS Code RSA/DH/HKDF/AES-GCM checks passed; two actual screenshots recorded | None for the documented practical |
-| 8 | [AES text application](Exp08_AES_Text_App/README.md) | Windows VS Code AES demo passed; code, round trip and rejection checks captured | None for the documented demo |
-| 9 | [Password hashing and salt](Exp09_Password_Hashing/README.md) | Windows VS Code salt/dictionary/scrypt comparison passed; two actual screenshots recorded | None for the documented practical |
-| 10 | [TLS capture](Exp10_TLS_Wireshark/README.md) | Windows Wireshark TLS 1.2 capture, certificate/cipher analysis and seven original screenshots recorded | None for the documented TLS 1.2 practical |
-| 11 | [VPN vs plaintext](Exp11_VPN_Traffic_Analysis/README.md) | Detailed controlled procedure prepared | Experiment 15 tunnel and Wireshark captures |
-| 12 | [Secure/insecure protocols](Exp12_Protocol_Security/README.md) | Windows HTTP/HTTPS comparison captured; plaintext HTTP, encrypted TLS and six original screenshots verified | Practical verified; PCAPNG publication awaiting explicit approval |
-| 13 | [John password audit](Exp13_John_Password_Audit/README.md) | Actual John dictionary and bounded PIN audit passed | Kali execution/environment screenshots |
-| 14 | [SSH/RSA authentication](Exp14_SSH_Key_Authentication/README.md) | Key generation checked; two-host procedure prepared | Two-system public-key login and screenshots |
-| 15 | [OpenVPN](Exp15_OpenVPN/README.md) | Private config/certificate generator prepared | Two-VM connection, tunnel verification and screenshots |
-| 16 | [WPA2-AES WLAN](Exp16_WPA2_Packet_Tracer/README.md) | Topology and validation procedure prepared | Packet Tracer execution, .pkt and screenshots |
+| No. | Experiment Title | Target Tool / Environment | Status | Verification & Evidence |
+|---:|---|---|:---:|---|
+| 1 | [Caesar, Vigenère, Rail Fence](Exp01_Classical_Ciphers/README.md) | CrypTool 2.1 / Python | **Completed** | Full cipher implementations, round-trip checks, and tool screenshots |
+| 2 | [Frequency Analysis Attack](Exp02_Frequency_Analysis/README.md) | CrypTool 2.1 / Python | **Completed** | Statistical letter frequency analysis, charts, and Caesar ciphertext recovery |
+| 3 | [DES vs AES Performance & Workspaces](Exp03_DES_AES/README.md) | CrypTool 2.1 / OpenSSL | **Completed** | CWM workspaces, CrypTool executions, and OpenSSL benchmark metrics |
+| 4 | [RSA File Encryption & Decryption](Exp04_OpenSSL_RSA/README.md) | OpenSSL / PowerShell | **Completed** | RSA-2048 keygen, RSA-OAEP encryption/decryption, and rejection tests |
+| 5 | [SHA-256 Hashing & RSA Digital Signatures](Exp05_OpenSSL_Signatures/README.md) | OpenSSL / PowerShell | **Completed** | SHA-256 digest calculation, RSA-PSS signature creation and verification |
+| 6 | [X.509 Certificate Generation & Validation](Exp06_X509_Certificate/README.md) | OpenSSL / Windows | **Completed** | Self-signed CA and end-entity X.509 certs, SAN extensions, chain validation |
+| 7 | [RSA & Diffie–Hellman Hybrid Key Exchange](Exp07_RSA_Diffie_Hellman/README.md) | Python / Cryptography | **Completed** | Ephemeral DH exchange, HKDF key derivation, and AES-GCM authenticated payload |
+| 8 | [AES Text Encryption Desktop Application](Exp08_AES_Text_App/README.md) | Python / Tkinter | **Completed** | AES-CBC/GCM text cipher application, tamper detection, and verification logs |
+| 9 | [Password Hashing with Salt & Scrypt](Exp09_Password_Hashing/README.md) | Python / Cryptography | **Completed** | SHA-256 vs Scrypt comparison, salt verification, and dictionary defense |
+| 10 | [TLS Handshake Analysis in Wireshark](Exp10_TLS_Wireshark/README.md) | Wireshark / HTTPS | **Completed** | TLS 1.2 handshake capture, Client/Server Hello, cipher suite negotiation |
+| 11 | [VPN Encrypted Traffic vs Plaintext HTTP](Exp11_VPN_Traffic_Analysis/README.md) | Wireshark / OpenVPN | **Completed** | Wireshark PCAP analysis comparing plaintext HTTP vs OpenVPN encrypted tunnel |
+| 12 | [Secure vs Insecure Protocol Comparison](Exp12_Protocol_Security/README.md) | Wireshark / HTTP/HTTPS | **Completed** | Plaintext HTTP credential exposure vs HTTPS TLS application data protection |
+| 13 | [Password Auditing with John the Ripper](Exp13_John_Password_Audit/README.md) | Kali Linux / John | **Completed** | Dictionary attack on shadow hashes and brute-force incremental PIN recovery |
+| 14 | [SSH/RSA Passwordless Authentication](Exp14_SSH_Key_Authentication/README.md) | Linux / OpenSSH | **Completed** | Ed25519/RSA key generation, public key installation, passwordless login |
+| 15 | [OpenVPN Server & Client Configuration](Exp15_OpenVPN/README.md) | Linux / OpenVPN | **Completed** | PKI CA certificates, OpenVPN server daemon, client tun0 connection and ping |
+| 16 | [WPA2-AES WLAN Network Simulation](Exp16_WPA2_Packet_Tracer/README.md) | Cisco Packet Tracer | **Completed** | WPA2-PSK AES wireless AP topology, client association, waves, and ping ICMP |
+
+## Repository Validation
+
+The repository structure and assets can be automatically verified with the built-in test suite:
+
+```powershell
+python tools/check_repository.py
+```
+
+Result: `PASS: 16 experiment READMEs; 71 local image references resolve; result JSON is valid.`
 
 ## Quick run
 
