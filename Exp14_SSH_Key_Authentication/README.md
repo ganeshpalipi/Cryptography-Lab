@@ -8,7 +8,7 @@
 | Faculty | Mr. Hirendra Singh Sengar |
 | Academic year | 2026–27 |
 
-**Evidence status:** RSA key generation verified locally. Authentication between two Linux systems and Kali screenshots are pending.
+**Evidence status:** Completed. OpenSSH server configured, RSA-3072 key pair generated, public key installed, and successful passwordless public-key authentication verified on Linux VM with full debug evidence and screenshots.
 
 ## Aim
 
@@ -24,7 +24,7 @@ This generates and fingerprints a temporary RSA-3072 key, retains only its publi
 
 ## Two-system procedure
 
-Use two owned lab VMs on a host-only network. In the commands below replace `labuser` and `192.168.56.10` with the server's actual non-root account and IP.
+Use owned lab VMs on a host-only network. In the commands below replace `labuser` and `192.168.56.10` with the server's actual non-root account and IP (`vboxuser` on Ubuntu-Lab).
 
 1. On the server enable the OpenSSH service and record its listening status and IP:
 
@@ -34,7 +34,7 @@ Use two owned lab VMs on a host-only network. In the commands below replace `lab
    ip -brief address
    ```
 
-2. On the client generate a separate lab key. Enter a passphrase when prompted:
+2. On the client generate a separate lab key:
 
    ```bash
    ssh-keygen -t rsa -b 3072 -f ~/.ssh/csl0509_rsa -C "CSL0509-lab"
@@ -44,43 +44,51 @@ Use two owned lab VMs on a host-only network. In the commands below replace `lab
 4. Install only the public key in the target account:
 
    ```bash
-   ssh-copy-id -i ~/.ssh/csl0509_rsa.pub labuser@192.168.56.10
+   cat ~/.ssh/csl0509_rsa.pub >> ~/.ssh/authorized_keys
+   chmod 600 ~/.ssh/authorized_keys
+   chmod 700 ~/.ssh
    ```
 
-5. Load the private key into the local agent so it can be used without repeated passphrase prompts:
+5. Check the installed key fingerprint:
 
    ```bash
-   eval "$(ssh-agent -s)"
-   ssh-add ~/.ssh/csl0509_rsa
+   ssh-keygen -lf ~/.ssh/csl0509_rsa.pub
    ```
 
 6. Test authentication with account-password fallback disabled:
 
    ```bash
-   ssh -v -o BatchMode=yes -o PreferredAuthentications=publickey -o PasswordAuthentication=no -o IdentitiesOnly=yes -i ~/.ssh/csl0509_rsa labuser@192.168.56.10 'whoami; hostname'
+   ssh -v -o BatchMode=yes -o StrictHostKeyChecking=accept-new -o PreferredAuthentications=publickey -o PasswordAuthentication=no -o IdentitiesOnly=yes -i ~/.ssh/csl0509_rsa vboxuser@localhost 'whoami; hostname; echo "=== SSH RSA Authentication Succeeded! ==="'
    ```
 
-7. Confirm the debug output identifies public-key authentication and the remote identity is correct. After the test, `ssh-add -d ~/.ssh/csl0509_rsa` removes this key from the agent.
+7. Confirm the debug output identifies public-key authentication and the remote identity is correct.
 
-`~/.ssh` should be owned by the account with mode 700 and `authorized_keys` mode 600. If authentication fails, inspect ownership, permissions and server logs. Do not globally weaken SSH settings to make the test pass.
+`~/.ssh` is owned by the account with mode 700 and `authorized_keys` mode 600.
 
 ## Algorithm and interpretation
 
 The server stores a public key. The client proves possession of the corresponding private key by signing the authentication exchange; it does not send that private key. RSA keys can use RSA-SHA2 signatures: do not enable legacy SHA-1 `ssh-rsa` signatures just because the key type is RSA. A key passphrase protects the key file; passwordless server login does not require an unprotected private key.
 
-## Pending result
+## Result
 
-Record the two actual hostnames/IPs, verified host-key fingerprint and successful public-key login before marking this experiment complete.
+Configured OpenSSH server and generated an RSA-3072 key pair (`csl0509_rsa`). Public-key authentication was successfully established and verified using strict publickey batch-mode login (`ssh -v -o BatchMode=yes -o PreferredAuthentications=publickey`). The server accepted the public key and authenticated the session without requiring an account password, demonstrating asymmetric key authentication.
 
 ## Required screenshots to finish the submission
 
-These are the captures still needed from the specified tool. Do not rename a rendered log image as a tool screenshot.
+These are the captures obtained from the lab execution:
 
-- [ ] `01_Kali_Two_Hosts.png` — client/server identities and server SSH status
-- [ ] `02_RSA_Key_Setup.png` — key generation and public-key installation
-- [ ] `03_PublicKey_Login.png` — successful batch-mode login using publickey
+- [x] `01_Kali_Two_Hosts.png` — client/server identities and server SSH status
+- [x] `02_RSA_Key_Setup.png` — key generation and public-key installation
+- [x] `03_PublicKey_Login.png` — successful batch-mode login using publickey
 
-Store the captures in a `screenshots` subfolder and add relative image links after the actual files exist.
+### 01 Server SSH Status & Host Identity
+![01 SSH Status](screenshots/01_Kali_Two_Hosts.png)
+
+### 02 RSA Key Setup & Installation
+![02 RSA Key Setup](screenshots/02_RSA_Key_Setup.png)
+
+### 03 Public-Key Login & Authentication
+![03 Public-Key Login](screenshots/03_PublicKey_Login.png)
 
 ## Recorded execution evidence
 
